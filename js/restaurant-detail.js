@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.title = `${restaurant.name} — Pomishchyk Guide`;
   document.getElementById('page-title').textContent = restaurant.name;
 
-  const photoUrl = restaurant.photo || `https://placehold.co/800x400/3E4A56/C59B6D?text=${encodeURIComponent(restaurant.name)}`;
+  const photoUrl = `images/${restaurant.slug}.jpg`;
 
   container.innerHTML = `
     <div class="row g-4">

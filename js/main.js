@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!container) return;
 
   restaurants.forEach(r => {
-    const photoUrl = r.photo || `https://placehold.co/600x400/3E4A56/C59B6D?text=${encodeURIComponent(r.name)}`;
+    const photoUrl = `images/${r.slug}.jpg`;
 
     const col = document.createElement('div');
     col.className = 'col-md-6 col-lg-4';
