@@ -23,6 +23,16 @@
       <h2>Ресторани</h2>
       <p>Рейтинг азіатських закладів Одеси</p>
     </div>
+    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4 p-3 bg-white rounded-3 shadow-sm">
+      <input type="text" id="searchInput" class="form-control" style="max-width:320px;border:2px solid var(--accent);font-family:'Russo One',sans-serif;letter-spacing:.03em;color:var(--primary)" placeholder="Пошук за назвою…">
+      <select id="sortSelect" class="form-select" style="max-width:220px;border:2px solid var(--accent);font-family:'Russo One',sans-serif;letter-spacing:.03em;color:var(--primary)">
+        <option value="default">За замовчуванням</option>
+        <option value="az">А–Я</option>
+        <option value="za">Я–А</option>
+        <option value="rating-desc">Рейтинг (спадання)</option>
+        <option value="rating-asc">Рейтинг (зростання)</option>
+      </select>
+    </div>
     <div class="row g-4" id="restaurants-list"></div>
   </main>
 

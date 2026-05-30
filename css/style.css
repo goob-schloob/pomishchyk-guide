@@ -216,6 +216,18 @@ main { flex: 1; }
   border-radius: 2px;
 }
 
+.controls-bar {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.controls-bar .form-control:focus,
+.controls-bar .form-select:focus {
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  border-color: var(--accent);
+}
+
 .restaurant-card {
   cursor: pointer;
   border: none !important;
