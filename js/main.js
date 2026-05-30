@@ -1,17 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('restaurants-list');
-  if (container) {
-    restaurants.forEach(r => {
-      const card = document.createElement('div');
-      card.className = 'restaurant-card';
-      card.innerHTML = `
-        <div class="info">
-          <h3>${r.name}</h3>
-          <p class="description">${r.description}</p>
+  if (!container) return;
+
+  restaurants.forEach(r => {
+    const photoUrl = r.photo || `https://placehold.co/600x400/3E4A56/C59B6D?text=${encodeURIComponent(r.name)}`;
+
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-lg-4';
+
+    col.innerHTML = `
+      <div class="card restaurant-card h-100" data-slug="${r.slug}">
+        <img src="${photoUrl}" class="card-img-top" alt="${r.name}" loading="lazy">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${r.name}</h5>
+          <p class="card-text flex-grow-1">${r.description}</p>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <span class="rating-badge" title="${r.ratingLabel}">${r.rating}</span>
+            <small class="text-muted">${r.ratingLabel}</small>
+          </div>
         </div>
-        <div class="rating-badge" title="${r.ratingLabel}">${r.rating}</div>
-      `;
-      container.appendChild(card);
+      </div>
+    `;
+
+    col.querySelector('.restaurant-card').addEventListener('click', () => {
+      window.location.href = `restaurant.html?slug=${r.slug}`;
     });
-  }
+
+    container.appendChild(col);
+  });
 });

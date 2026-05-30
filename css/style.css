@@ -1,66 +1,66 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #3E4A56;
+  --primary-dark: #2d363f;
+  --accent: #C59B6D;
+  --accent-hover: #b8895a;
+  --text-light: #f0e6d8;
+  --text-muted: #a09080;
+  --bg-light: #f8f6f3;
+  --card-shadow: 0 4px 20px rgba(62, 74, 86, 0.12);
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
   color: #333;
-  background: #fafafa;
+  background: var(--bg-light);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-header {
-  background: #1a1a2e;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+h1, h2, h3, h4, h5, h6, .logo, .nav-link, .rate, .rating-badge, .btn {
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: 0.5px;
 }
 
-header .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+.navbar {
+  background: var(--primary) !important;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  padding: 0.7rem 0;
 }
 
-header .logo a {
-  color: #fff;
+.navbar .logo {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navbar .logo a {
+  color: var(--accent) !important;
   text-decoration: none;
 }
 
-header nav {
-  display: flex;
-  gap: 1.5rem;
+.navbar .nav-link {
+  color: var(--text-light) !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 1rem !important;
+  border-radius: 4px;
+  transition: color 0.3s, background 0.3s;
 }
 
-header nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
-}
-
-header nav a:hover {
-  background: #e94560;
-  color: #fff;
+.navbar .nav-link:hover {
+  color: var(--accent) !important;
+  background: rgba(197, 155, 109, 0.1);
 }
 
 .hero {
   position: relative;
   height: 70vh;
-  min-height: 400px;
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,144 +70,176 @@ header nav a:hover {
 
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Vietnam_War_Hue_1968.jpg/1280px-Vietnam_War_Hue_1968.jpg') center/cover no-repeat;
-  filter: brightness(0.5);
+  inset: 0;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/7/75/Vietnam_War_Hue_1968.jpg') center/cover no-repeat;
+  filter: brightness(0.55) saturate(0.85);
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(62, 74, 86, 0.7), rgba(45, 54, 63, 0.4));
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: #fff;
   padding: 2rem;
-  max-width: 800px;
+  max-width: 850px;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-size: 1.15rem;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  opacity: 0.9;
 }
 
 main {
   flex: 1;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-  width: 100%;
 }
 
-.page-title {
+.page-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-.page-title h2 {
+.page-header h2 {
   font-size: 2rem;
-  color: #1a1a2e;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #777;
+  font-size: 1rem;
 }
 
 .restaurant-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform 0.2s;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 
 .restaurant-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(62, 74, 86, 0.2);
 }
 
-.restaurant-card .info h3 {
-  font-size: 1.4rem;
-  color: #1a1a2e;
-  margin-bottom: 0.3rem;
+.restaurant-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
 
-.restaurant-card .info .description {
+.restaurant-card .card-body h5 {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.restaurant-card .card-body .card-text {
   color: #666;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .restaurant-card .rating-badge {
-  background: #e94560;
-  color: #fff;
-  padding: 0.6rem 1rem;
+  background: var(--primary);
+  color: var(--accent);
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.restaurant-detail-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.restaurant-detail-info h2 {
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+.restaurant-detail-info .rating-lg {
+  background: var(--primary);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
   border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 80px;
-  text-align: center;
+  font-size: 1.3rem;
+  display: inline-block;
 }
 
 .rating-system {
   display: grid;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.2rem;
 }
 
 .rating-item {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: var(--card-shadow);
   padding: 1.5rem 2rem;
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .rating-item:hover {
   transform: translateX(5px);
+  box-shadow: 0 6px 25px rgba(62, 74, 86, 0.15);
 }
 
 .rating-item .rate {
   font-size: 2rem;
-  font-weight: 800;
-  color: #e94560;
-  min-width: 100px;
+  color: var(--accent);
+  min-width: 110px;
   text-align: center;
   flex-shrink: 0;
+  background: var(--primary);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
 }
 
 .rating-item .rate-desc h4 {
-  font-size: 1.15rem;
-  color: #1a1a2e;
+  font-size: 1.1rem;
+  color: var(--primary);
   margin-bottom: 0.3rem;
 }
 
 .rating-item .rate-desc p {
-  color: #555;
-  font-size: 0.95rem;
+  color: #666;
+  font-size: 0.92rem;
+  margin: 0;
 }
 
 .empty-page {
   max-width: 700px;
   margin: 3rem auto;
   text-align: center;
-  padding: 3rem;
+  padding: 3rem 2rem;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: var(--card-shadow);
 }
 
 .empty-page h2 {
-  color: #1a1a2e;
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
@@ -217,93 +249,62 @@ main {
 }
 
 footer {
-  background: #1a1a2e;
-  color: #ccc;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  margin-top: auto;
+  background: var(--primary) !important;
+  color: var(--text-light) !important;
 }
 
-footer .footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-}
-
-footer .footer-links a {
-  color: #e0e0e0;
+footer a {
+  color: var(--accent) !important;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s;
+  transition: opacity 0.3s;
 }
 
-footer .footer-links a:hover {
-  color: #e94560;
+footer a:hover {
+  opacity: 0.8;
+  color: var(--accent) !important;
 }
 
-footer .telegram {
-  display: inline-block;
-  margin-top: 0.5rem;
-  background: #e94560;
-  color: #fff;
+footer .btn-telegram {
+  background: var(--accent);
+  color: var(--primary) !important;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
 }
 
-footer .telegram:hover {
-  background: #c73650;
+footer .btn-telegram:hover {
+  background: var(--accent-hover);
+  transform: scale(1.03);
+  opacity: 1 !important;
 }
 
 footer p {
-  font-size: 0.85rem;
-  margin-top: 0.8rem;
+  font-size: 0.82rem;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 1rem;
-  }
-
-  header nav {
-    gap: 0.8rem;
-  }
-
-  header nav a {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
-
-  .restaurant-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+  .hero-content p {
+    font-size: 0.95rem;
   }
-
   .rating-item {
     flex-direction: column;
     text-align: center;
+    padding: 1.2rem;
   }
-
   .rating-item .rate {
     min-width: auto;
+    width: 100%;
   }
-
-  main {
-    padding: 1.5rem;
-  }
-
-  footer .footer-links {
-    gap: 1rem;
+  .restaurant-detail-img {
+    max-height: 250px;
   }
 }
